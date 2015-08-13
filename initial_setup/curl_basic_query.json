@@ -1,0 +1,16 @@
+curl -XPOST "http://localhost:9200/uir_index3/articles/_search" -d'
+{
+"size": 10,
+   "query": {
+      "filtered": {
+         "query": {
+            "match": {
+               "_all": {
+                  "query": "concrete slabs",
+                  "operator": "and"
+           }
+        }
+      }
+    }
+  }
+}'
