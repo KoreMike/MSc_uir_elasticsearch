@@ -13,7 +13,14 @@ curl -XPUT "http://localhost:9200/uir_index3" -d'
                   "punctuation",
                   "symbol"
                ]
-            }
+            },
+
+            "synonym_filter" : {
+              "type" : "synonym",
+              "synonyms_path" : "synonyms.txt",
+              "ignore_case": true
+          }
+
          },
          "analyzer": {
             "nGram_analyzer": {
@@ -32,7 +39,11 @@ curl -XPUT "http://localhost:9200/uir_index3" -d'
                   "lowercase",
                   "asciifolding"
                ]
-            }
+            },
+            "synonym_analyzer": {
+            "tokenizer": "whitespace",
+            "filter": ["synonym_filter"]
+          }
          }
       }
    },
@@ -40,7 +51,8 @@ curl -XPUT "http://localhost:9200/uir_index3" -d'
       "articles": {
          "_all": {
             "index_analyzer": "nGram_analyzer",
-            "search_analyzer": "whitespace_analyzer"
+            "search_analyzer": "whitespace_analyzer",
+            "analyzer": "synonym_analyzer"
          },
          "properties": {
            "url": {
