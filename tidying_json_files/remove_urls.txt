@@ -13,3 +13,7 @@ Best solution uses awk:
 awk -F\" '$4 !~ /eprints.ulster.ac.uk\/[[:alpha:]]/' uir-index.json > awk-cleaned-index.json
 
 This can be used for all urls such as /view /author /year etc.
+
+Or could use:
+
+$4 ~ /eprints.ulster.ac.uk\/[[:digit:]]/
