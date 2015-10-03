@@ -1,4 +1,4 @@
-****Notes
+###Notes
 
 In order to run the script to load index to Elasticsearch, 
 make sure node is installed (https://goo.gl/PiVMtB)
