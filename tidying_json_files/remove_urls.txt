@@ -8,3 +8,8 @@ Can also be done using a regexp:
 
 with find and replace in Notepad++, followed by a replace empty lines operation
 
+Best solution uses awk:
+
+awk -F\" '$4 !~ /eprints.ulster.ac.uk\/[[:alpha:]]/' uir-index.json > awk-cleaned-index.json
+
+This can be used for all urls such as /view /author /year etc.
