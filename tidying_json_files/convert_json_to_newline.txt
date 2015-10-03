@@ -1,0 +1,6 @@
+Step 1 -- use find and replace "}," to "}"
+
+Step 2 - paste json into https://jqplay.org
+Run with the "." filter and choose 'compact' output
+
+NB this is online version of cli at https://stedolan.github.io/jq/

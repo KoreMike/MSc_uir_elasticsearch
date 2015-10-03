@@ -1,0 +1,10 @@
+cat uir-index-newline.json| jq -c 'select(.id|startswith("http://eprints.ulster.ac.uk/view/")|not )' > cleaned-uir-index2.json
+
+Uses the jq tool (https://stedolan.github.io/jq/ https://jqplay.org/)
+
+Can also be done using a regexp:
+
+.*uk\/view.*
+
+with find and replace in Notepad++, followed by a replace empty lines operation
+
