@@ -6,6 +6,8 @@ Convert resulting json file to newline format as per 'convert_json_to_newline.tx
 
 Then run 'delete-staff-duplicates.py'
 
+Use notepad++ to find and replace all instances of metatag.Staff
+
 The resulting json file is then cleaned and deduplicated and ready for import
 
 ###importing index
