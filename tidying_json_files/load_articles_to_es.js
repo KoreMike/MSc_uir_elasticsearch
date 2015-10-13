@@ -1,14 +1,10 @@
-// Load this using "node load_articles_to_es.js"
-// script adapted from: 
-// http://www.sitepoint.com/building-recipe-search-site-angular-elasticsearch/
-
 var fs = require('fs');
 var es = require('elasticsearch');
 var client = new es.Client({
   host: 'localhost:9200'
 });
 
-fs.readFile('uir-index-newline.json', {encoding: 'utf-8'}, function(err, data) {
+fs.readFile('uir-index.json', {encoding: 'utf-8'}, function(err, data) {
   if (err) { throw err; }
 
   // Build up a giant bulk request for elasticsearch.
@@ -24,14 +20,17 @@ fs.readFile('uir-index-newline.json', {encoding: 'utf-8'}, function(err, data) {
 
     // Rework the data slightly
     article = {
-      id: obj.id,
       name: obj.name,
       source: obj.source,
-      title: obj.title,
+      authors:obj.citation, //the citation field has been trimmed in the original file
+      title:obj.title,
+      articletitle:obj.articletitle,
+      publication:obj.publication,
+      img:'http://s17.postimg.org/pe3qd5nkr/article.png',
       url: obj.url,
     };
 
-    bulk_request.push({index: {_index: 'uir_index3', _type: 'article', _id: article.id}});
+    bulk_request.push({index: {_index: 'uir_index15', _type: 'article', _id: article.url}});
     bulk_request.push(article);
     return bulk_request;
   }, []);

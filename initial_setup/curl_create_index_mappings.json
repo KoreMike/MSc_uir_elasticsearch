@@ -1,4 +1,4 @@
-curl -XPUT "http://localhost:9200/uir_index3" -d'
+curl -XPUT "http://localhost:9200/uir_index15" -d'
 {
    "settings": {
       "analysis": {
@@ -13,14 +13,7 @@ curl -XPUT "http://localhost:9200/uir_index3" -d'
                   "punctuation",
                   "symbol"
                ]
-            },
-
-            "synonym_filter" : {
-              "type" : "synonym",
-              "synonyms_path" : "synonyms.txt",
-              "ignore_case": true
-          }
-
+            }
          },
          "analyzer": {
             "nGram_analyzer": {
@@ -39,31 +32,39 @@ curl -XPUT "http://localhost:9200/uir_index3" -d'
                   "lowercase",
                   "asciifolding"
                ]
-            },
-            "synonym_analyzer": {
-            "tokenizer": "whitespace",
-            "filter": ["synonym_filter"]
-          }
+            }
          }
       }
    },
    "mappings": {
-      "articles": {
+      "article": {
          "_all": {
             "index_analyzer": "nGram_analyzer",
-            "search_analyzer": "whitespace_analyzer",
-            "analyzer": "synonym_analyzer"
+            "search_analyzer": "whitespace_analyzer"
          },
          "properties": {
-           "url": {
+               "articletitle": {
+                  "type": "string",
+                  "index": "not_analyzed"
+               },
+               "authors": {
+                  "type": "string",
+                  "index": "not_analyzed"
+               },
+               "img": {
                "type": "string",
                "index": "no",
                "include_in_all": false
-            },
-            "title": {
-               "type": "string",
-               "index": "not_analyzed"
-            }
+               },
+               "publication": {
+                  "type": "string",
+                  "index": "not_analyzed"
+               },
+               "url": {
+                  "type": "string",
+                  "index": "no",
+                  "include_in_all": false
+               }
          }
        }
      }

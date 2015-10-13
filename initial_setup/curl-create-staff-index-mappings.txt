@@ -1,4 +1,4 @@
-curl -XPUT "http://localhost:9200/uustaff_index2" -d'
+curl -XPUT "http://localhost:9200/uustaff_index3" -d'
 {
    "settings": {
       "analysis": {
@@ -51,7 +51,7 @@ curl -XPUT "http://localhost:9200/uustaff_index2" -d'
                "type": "string",
                "index": "not_analyzed"
             },
-            "img": {
+            "staffimg": {
                "type": "string",
                "index": "no",
                "include_in_all": false
