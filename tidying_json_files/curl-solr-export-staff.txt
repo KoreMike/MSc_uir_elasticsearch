@@ -1,0 +1,1 @@
+curl "http://localhost:8983/solr/collection1/select?q=metatag.Staff.Forename:*&wt=json&indent=true&start=0&rows=2000000000&fl=description,title,url,metatag.Staff.Department,metatag.Staff.Job.Title,metatag.Staff.Surname,metatag.Staff.Forename" > staff-output-solr-index5.json

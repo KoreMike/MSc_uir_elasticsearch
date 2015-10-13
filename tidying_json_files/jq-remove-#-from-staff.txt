@@ -1,0 +1,1 @@
+cat staff-output-solr-index.json| jq -c 'select(.url|contains("#")|not )' > cleaned-staff-index.json
