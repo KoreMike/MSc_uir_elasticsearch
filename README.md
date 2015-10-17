@@ -13,14 +13,14 @@ https://github.com/romansanchez/Calaca
 
 #### Prerequisites
 
-**jq json editor** with regex enabled by onigoroam library:
+**jq json editor** with regex enabled by oniguruma library:
 
 1. sudo apt-get install libonig-dev
 2. Download and extract source tarball from https://stedolan.github.io/jq/download/
 3. cd to extracted source folder
---* ./configure
---* make
---* sudo make install
+./configure
+make
+sudo make install
 
 **node.js**
 

@@ -16,7 +16,7 @@ Open terminal and run 'curl-solr-export-articles.txt'
 
 Convert resulting json file to newline format as per 'convert_json_to_newline.txt'
 
-Then run `cat uir-index.json | jq '.["metatag.eprints.citation"] |= match(".*?\\)").string // .' > edited-uir-index.json`
+Then run `cat uir-index.json | jq -c '.["metatag.eprints.citation"] |= match(".*?\\)").string // .' > edited-uir-index.json`
 
 Use notepad++ to remove all instances of "metatag.eprints." and unwanted spaces
 
