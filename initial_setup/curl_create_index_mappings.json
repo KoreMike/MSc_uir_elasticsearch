@@ -1,10 +1,10 @@
-curl -XPUT "http://localhost:9200/uir_index15" -d'
+curl -XPUT "http://localhost:9200/uir_index19" -d'
 {
    "settings": {
       "analysis": {
          "filter": {
-            "nGram_filter": {
-               "type": "nGram",
+            "edgeNGram_filter": {
+               "type": "edgeNGram",
                "min_gram": 2,
                "max_gram": 20,
                "token_chars": [
@@ -16,13 +16,13 @@ curl -XPUT "http://localhost:9200/uir_index15" -d'
             }
          },
          "analyzer": {
-            "nGram_analyzer": {
+            "edgeNGram_analyzer": {
                "type": "custom",
                "tokenizer": "whitespace",
                "filter": [
                   "lowercase",
                   "asciifolding",
-                  "nGram_filter"
+                  "edgeNGram_filter"
                ]
             },
             "whitespace_analyzer": {
@@ -39,7 +39,7 @@ curl -XPUT "http://localhost:9200/uir_index15" -d'
    "mappings": {
       "article": {
          "_all": {
-            "index_analyzer": "nGram_analyzer",
+            "index_analyzer": "edgeNGram_analyzer",
             "search_analyzer": "whitespace_analyzer"
          },
          "properties": {
@@ -55,6 +55,14 @@ curl -XPUT "http://localhost:9200/uir_index15" -d'
                "type": "string",
                "index": "no",
                "include_in_all": false
+               },
+               "keywords": {
+                  "type": "string",
+                  "index": "not_analyzed"
+               },
+               "abstract": {
+                  "type": "string",
+                  "index": "not_analyzed"
                },
                "publication": {
                   "type": "string",
