@@ -1,3 +1,6 @@
+# There is no need to tell this what file to run on!
+# i.e. just run 'python edit-citations-metatag.py'
+
 from tempfile import NamedTemporaryFile
 from shutil import move
 from itertools import groupby

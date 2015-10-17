@@ -1,0 +1,5 @@
+curl "http://localhost:8983/solr/collection1/select?q=metatag.eprints.title:*&wt=json&indent=true&start=0&rows=2000000000&fl=url,metatag.eprints.title,metatag.eprints.citation,metatag.eprints.publication" > uir-output-solr-index.json
+
+to include keywords and abstracts:
+
+curl "http://localhost:8983/solr/collection1/select?q=metatag.eprints.title:*&wt=json&indent=true&start=0&rows=2000000000&fl=url,metatag.eprints.title,metatag.eprints.citation,metatag.eprints.publication,metatag.eprints.keywords,metatag.eprints.abstract" > uir-output-solr-index.json
