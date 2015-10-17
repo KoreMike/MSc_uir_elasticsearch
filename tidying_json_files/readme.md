@@ -10,6 +10,16 @@ Use notepad++ to find and replace all instances of metatag.Staff and Job.Title w
 
 The resulting json file is then cleaned and deduplicated and ready for import
 
+###exporting and tidying article index
+
+Open terminal and run 'curl-solr-export-articles.txt'
+
+Convert resulting json file to newline format as per 'convert_json_to_newline.txt'
+
+Then run `cat uir-index.json | jq '.["metatag.eprints.citation"] |= match(".*?\\)").string // .' > edited-uir-index.json`
+
+Use notepad++ to remove all instances of "metatag.eprints." and unwanted spaces
+
 ###importing index
 
 In order to run the script to load index to Elasticsearch,
