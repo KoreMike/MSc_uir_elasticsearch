@@ -26,4 +26,5 @@ sudo make install
 
 https://goo.gl/PiVMtB
 
+Then "npm install grunt"
 Then run "npm install elasticsearch" to get the JavaScript Elasticsearch library
