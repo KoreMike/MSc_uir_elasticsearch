@@ -1,4 +1,4 @@
-curl -XPUT "http://localhost:9200/uir_index19" -d'
+curl -XPUT "http://localhost:9200/uir_index" -d'
 {
    "settings": {
       "analysis": {
