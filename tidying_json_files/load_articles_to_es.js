@@ -24,15 +24,13 @@ fs.readFile('uir-index.json', {encoding: 'utf-8'}, function(err, data) {
       source: obj.source,
       authors:obj.citation, //the citation field has been trimmed in the original file
       title:obj.title,
-      articletitle:obj.articletitle,
       publication:obj.publication,
       keywords:obj.keywords,
       abstract:obj.abstract,
-      img:'http://s17.postimg.org/pe3qd5nkr/article.png',
       url: obj.url,
     };
 
-    bulk_request.push({index: {_index: 'uir_index17', _type: 'article', _id: article.url}});
+    bulk_request.push({index: {_index: 'uir_index', _type: 'article', _id: article.url}});
     bulk_request.push(article);
     return bulk_request;
   }, []);
