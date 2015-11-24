@@ -4,7 +4,7 @@ var client = new es.Client({
   host: 'localhost:9200'
 });
 
-fs.readFile('uu-institute-index2', {encoding: 'utf-8'}, function(err, data) {
+fs.readFile('uu-institute-index2.json', {encoding: 'utf-8'}, function(err, data) {
   if (err) { throw err; }
 
   // Build up a giant bulk request for elasticsearch.
